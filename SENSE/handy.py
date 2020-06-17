@@ -63,7 +63,7 @@ def plot_patterns(matrix,rows=8, cmap='gray'):
     for i in np.arange(n_patterns):
         plt.subplot(k,rows,s[i])
         plt.imshow(matrix[i],cmap=cmap)
-        plt.title('$\Delta=$ {}'.format(i))
+        plt.title('Coil # {}'.format(i))
         ax = plt.gca();
 
         # Major ticks
@@ -151,3 +151,13 @@ def take_center(array,size):
     #print(nx,ny,nz,rx,ry,rz)
     return reduced
 
+def swappy(array):
+    """Swap first and last dimensions of array
+    """
+    ndim = array.ndim
+    count=1
+    hulp = np.copy(array)
+    for i in range(ndim-1)[::-1]:
+        count+=1
+        hulp = np.swapaxes(hulp,ndim-i-2,ndim-i-1)
+    return hulp
