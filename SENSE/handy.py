@@ -157,7 +157,7 @@ def swappy(array):
     ndim = array.ndim
     count=1
     hulp = np.copy(array)
-    for i in range(ndim-1)[::-1]:
+    for i in range(ndim-1):
         count+=1
         hulp = np.swapaxes(hulp,ndim-i-2,ndim-i-1)
     return hulp
